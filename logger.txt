@@ -1,0 +1,10 @@
+
+Method: GET | URL / | Time: 1795521021807
+Method: GET | URL / | Time: 1795521022426
+Method: GET | URL / | Time: 1795521552712
+Method: GET | URL /api | Time: 1795521557080
+Method: GET | URL /api/5 | Time: 1795521559527
+Method: GET | URL /api | Time: 1795521670534
+Method: GET | URL /api | Time: 1795521670964
+Method: GET | URL /api | Time: 1795521674744
+Method: GET | URL / | Time: 1795521677367
