@@ -1,14 +1,23 @@
-import path from "path"
 import dotenv from "dotenv"
+import { fileURLToPath } from "url"
 
 dotenv.config({
-    path: path.join(process.cwd(), ".env")
+    path: fileURLToPath(new URL("../../.env", import.meta.url))
 })
+
+const requiredSecret = (name: string): string => {
+    const value = process.env[name]
+    if (!value?.trim()) {
+        throw new Error(`Missing required environment variable: ${name}`)
+    }
+    return value
+}
 
 const config = {
     port: process.env.PORT,
     connecting_String: process.env.DATABASE_URL,
-    jwt_Secret: process.env.JWT_SECRET as string
+    jwt_Secret: requiredSecret("JWT_SECRET"),
+    refresh_Secret: requiredSecret("JWT_REFRESH_SECRET"),
 }
 
 export default config

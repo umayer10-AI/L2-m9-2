@@ -39,13 +39,18 @@ const loginUserFromDB = async(payload: ILogin) => {
 
     const accessToken = jwt.sign(jwtPayload,
         config.jwt_Secret, {
-            expiresIn: "1d"
+            expiresIn: "1h"
+        }
+    )
+    const refreshToken = jwt.sign(jwtPayload,
+        config.refresh_Secret, {
+            expiresIn: "10d"
         }
     )
 
     delete user.rows[0].password
 
-    return {accessToken, user: user.rows[0]}
+    return {accessToken,refreshToken, user: user.rows[0]}
 
 }
 
